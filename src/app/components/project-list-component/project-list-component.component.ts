@@ -22,12 +22,22 @@ export class ProjectListComponentComponent implements OnInit {
 
   ngOnInit(): void {
       forkJoin(
-        this.projectService.getAll(),
+        this.projectService.getAll(""),
         this.projectService.getOpenedTask()
       )
       .subscribe(([projects, dict]) => {
         this.projects = projects;
         this.dictOpenedTask = dict;
       })
+  }
+
+  handleFilterByEnter (phrase: string): void {
+    this.projectService.getAll(phrase).subscribe((projects) => {
+      this.projects = projects;
+    })
+  }
+
+  handleAddNewProject ():void {
+    this.router.navigate(['/projects/new']);
   }
 }

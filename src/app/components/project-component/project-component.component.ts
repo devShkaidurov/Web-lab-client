@@ -22,4 +22,5 @@ export class ProjectComponentComponent {
         this.router.navigate(navigationDetails);
       }
   }
+
 }
