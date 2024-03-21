@@ -1,0 +1,10 @@
+<div class="project">
+    <p>№: {{project?.id || "Нет данных"}}</p>
+    <h6>Название: {{project?.nameProject || "Нет данных"}}</h6>
+    <p>Дата начала: {{project?.startDate | date: 'dd/mm/yyyy' }}</p>
+    <p>Дата завершения: {{project?.finishDate | date: 'dd/mm/yyyy' }}</p>
+    <p>Незавершенных задач: {{ countOpenTask }}</p>
+    <button class="update-project" (click)="goToUpdate()">
+        <img src="../../../assets/img/update.svg">
+    </button>
+</div>

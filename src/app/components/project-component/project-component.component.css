@@ -1,0 +1,23 @@
+.project {
+    border: solid 1px black;
+    width: fit-content;
+    padding: 5px;
+    position: relative;
+}
+
+.update-project {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    background-color: none;
+    border:none;
+    cursor: pointer;
+    background: none;
+    transition: 0.25s;
+}
+
+.update-project:hover {
+    scale: 1.1;
+    transition: 0.25s;
+}
