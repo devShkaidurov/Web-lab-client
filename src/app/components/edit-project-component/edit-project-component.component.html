@@ -1,1 +1,21 @@
-<p>edit-project-component works!</p>
+<div class="edit-container">
+    <div class="name_project">
+        <p>Имя проекта</p>
+        <input type="text" [(ngModel)]="project.nameProject">
+    </div>
+
+    <div class="desc_project">
+        <p>Описание проекта</p>
+        <textarea [(ngModel)]="project.descriptionProject"></textarea>
+    </div>
+
+    <div class="date_start_project">
+        <p>Дата начала проекта</p>
+        <input type="date">
+    </div>
+
+    <div class="date_finish_project">
+        <p>Дата завершения проекта</p>
+        <input type="date">
+    </div>
+</div>

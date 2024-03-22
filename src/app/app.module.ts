@@ -7,6 +7,7 @@ import { TaskListComponentComponent } from './components/task-list-component/tas
 import { EditProjectComponentComponent } from './components/edit-project-component/edit-project-component.component';
 import { ProjectComponentComponent } from './components/project-component/project-component.component';
 import { StartUpComponent } from './components/start-up/start-up.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { StartUpComponent } from './components/start-up/start-up.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProjectComponentComponent
+    ProjectComponentComponent,
+    FormsModule
   ],
   providers: [],
   bootstrap: [StartUpComponent]

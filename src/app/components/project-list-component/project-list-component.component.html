@@ -5,7 +5,7 @@
             <input type="search" id="project-filter" #box (keyup.enter)="handleFilterByEnter(box.value)">
             <button title="Найти проект по названию или описанию">Поиск</button>
         </div>
-        <button title="Добавить новый проект" id="addNewProjectAction" (click)="handleAddNewProject()">
+        <button title="Добавить новый проект" id="addNewProjectAction" [routerLink]="['/projects/new']">
             <img src="../../../assets/img/add.svg">
         </button>
     </div>

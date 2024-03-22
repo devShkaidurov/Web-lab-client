@@ -36,8 +36,4 @@ export class ProjectListComponentComponent implements OnInit {
       this.projects = projects;
     })
   }
-
-  handleAddNewProject ():void {
-    this.router.navigate(['/projects/new']);
-  }
 }

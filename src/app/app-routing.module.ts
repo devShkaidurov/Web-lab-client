@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, provideRouter, withComponentInputBinding } from '@angular/router';
 import { EditProjectComponentComponent } from './components/edit-project-component/edit-project-component.component';
 import { ProjectListComponentComponent } from './components/project-list-component/project-list-component.component';
 import { TaskListComponentComponent } from './components/task-list-component/task-list-component.component';
@@ -13,7 +13,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    provideRouter(routes, withComponentInputBinding())
+  ]
 })
 export class AppRoutingModule {}
 
