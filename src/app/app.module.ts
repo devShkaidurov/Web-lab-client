@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { TaskListComponentComponent } from './components/task-list-component/task-list-component.component';
 import { EditProjectComponentComponent } from './components/edit-project-component/edit-project-component.component';
 import { ProjectComponentComponent } from './components/project-component/project-component.component';
+import { StartUpComponent } from './components/start-up/start-up.component';
 
 @NgModule({
   declarations: [
     ProjectListComponentComponent,
     TaskListComponentComponent,
     EditProjectComponentComponent,
+    StartUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { ProjectComponentComponent } from './components/project-component/projec
     ProjectComponentComponent
   ],
   providers: [],
-  bootstrap: [ProjectListComponentComponent]
+  bootstrap: [StartUpComponent]
 })
 export class AppModule { 
   

@@ -5,7 +5,6 @@ import { ProjectListComponentComponent } from './components/project-list-compone
 import { TaskListComponentComponent } from './components/task-list-component/task-list-component.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'projects', pathMatch: 'full'},
   { path: 'projects', component: ProjectListComponentComponent, pathMatch: 'full'},
   { path: 'projects/:id', component: EditProjectComponentComponent},
   { path: 'projects/new',  component: EditProjectComponentComponent},
