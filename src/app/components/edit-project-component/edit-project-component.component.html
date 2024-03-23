@@ -1,21 +1,30 @@
-<div class="edit-container">
-    <div class="name_project">
+<div class="edit-wrapper">
+    <button id="backBtn" (click)="goBack()">
+        <img src="../../../assets/img/back.svg">
+        Назад
+    </button>
+
+    <div class="edit-container name_project">
         <p>Имя проекта</p>
         <input type="text" [(ngModel)]="project.nameProject">
     </div>
 
-    <div class="desc_project">
+    <div class="edit-container desc_project">
         <p>Описание проекта</p>
         <textarea [(ngModel)]="project.descriptionProject"></textarea>
     </div>
 
-    <div class="date_start_project">
+    <div class="edit-container date_start_project">
         <p>Дата начала проекта</p>
-        <input type="date">
+        <input type="date" [(ngModel)]="project.startDate">
     </div>
 
-    <div class="date_finish_project">
+    <div class="edit-container date_finish_project">
         <p>Дата завершения проекта</p>
-        <input type="date">
+        <input type="date"  [(ngModel)]="project.finishDate">
     </div>
+
+    <button >
+        Сохранить
+    </button>
 </div>

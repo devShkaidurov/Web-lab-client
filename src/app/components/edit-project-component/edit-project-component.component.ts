@@ -1,19 +1,22 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/interfaces/Project';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-edit-project-component',
   templateUrl: './edit-project-component.component.html',
-  styleUrls: ['./edit-project-component.component.css']
+  styleUrls: ['./edit-project-component.component.css'],
 })
 export class EditProjectComponentComponent implements OnInit {
   @Input() project!: Project;
   @Input() projectId: string | undefined;
+  
   // projectId: number | undefined;
   constructor(
     private projectService: ProjectService,
+    private router: Router
     ) {
     // this.route.queryParams.subscribe(params => {
     //     console.dir(params);
@@ -44,5 +47,10 @@ export class EditProjectComponentComponent implements OnInit {
       };
       this.project = proj;
     }
+  }
+
+  goBack(): void {
+    console.dir("GO back")
+    this.router.navigate(['projects']);
   }
 }
