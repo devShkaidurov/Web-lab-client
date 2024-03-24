@@ -7,7 +7,11 @@
     <div class="task-date-container">
         <p>Планируемая дата завершения: {{ task?.plannedFinishDate }}</p>
     </div>
-    <button class="removeTaskBtn" (click)="handleDeleteTask(task?.id)" title="Удалить задачу">
+    <button *ngIf="task?.completed" class="removeTaskBtn" (click)="handleDeleteTask(task?.id)" title="Удалить задачу">
         <img src="../../../assets/img/delete.svg" alt="delete_task">
+    </button>
+
+    <button *ngIf="!task?.completed" class="removeTaskBtn" (click)="handleCompleteTask()" title="Пометить задачу как выполненную">
+        <img src="../../../assets/img/complete.svg" alt="complete_task">
     </button>
 </div>

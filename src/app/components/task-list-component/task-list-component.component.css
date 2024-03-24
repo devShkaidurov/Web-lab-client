@@ -10,6 +10,7 @@
 }
 
 #task-list-header {
+    margin-top: 15px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -32,7 +33,7 @@
 
 #goBackBtn {
     position: absolute;
-    top: 10px;
+    top: 19px;
     left: 15px;
     width: 45px;
     border: none;
@@ -52,4 +53,54 @@
     align-items: center;
     height: 30%;
     font-size: 14pt;
+}
+
+.subheader .second {
+   width: calc(100% - 20px);
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+.subheader .first {
+    font-size: 14pt;
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+#removeProject {
+    width: 182px;
+    border-radius: 5px;
+    color: black;
+    background-color: red;
+    font-size: 14pt;
+    transition: 0.1s;
+    padding: 3px 5px 3px 5px;
+    margin-bottom: 10px;
+}
+
+#removeProject:hover {
+    transition: 0.1s;
+    box-shadow: 0px 0px 5px black;
+}
+
+#handleAddTask {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#handleAddTask button {
+    border-radius: 5px;
+    transition: 0.15s;
+}
+
+#handleAddTask button:hover {
+    transition: 0.15s;
+    box-shadow: 0px 0px 3px black;
 }

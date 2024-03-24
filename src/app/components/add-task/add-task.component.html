@@ -1,0 +1,26 @@
+
+<div id="add-task-wrapper">
+    <h3 style="padding-bottom: 15px;">Создание задачи</h3>
+    <div class="add-task-container">
+        <p class="first">Название задачи:</p>
+        <input type="text" #taskName>
+    </div>
+
+    <div class="add-task-container">
+        <p class="first">Описание задачи:</p>
+        <textarea name="descriptionTask" #taskDesc cols="22" rows="1"></textarea>
+    </div>
+
+    <div class="add-task-container">
+        <p class="first" style="padding-top: 6px;">Планируемая дата завершения:</p>
+        <input type="date" #taskDate> 
+    </div>
+
+    <div id="handleAddTask" (click)="handleAddTask(taskName.value, taskDesc.value, taskDate.value)">
+        <button>Создать</button>
+    </div>
+
+    <button id="goBackBtn" (click)="handleGoBack()">
+        <img src="../../../assets/img/back.svg" alt="back">
+    </button>
+</div>

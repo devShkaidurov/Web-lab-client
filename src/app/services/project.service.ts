@@ -31,5 +31,9 @@ export class ProjectService {
         return this.http.post<Project>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects`,
             project);
     }
+
+    deleteById (id: number | undefined): Observable<Object> {
+        return this.http.delete<Object>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${id}`);
+    }
 }
 

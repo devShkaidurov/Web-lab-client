@@ -10,6 +10,7 @@ import { StartUpComponent } from './components/start-up/start-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskComponentComponent } from './components/task-component/task-component.component';
 import { RouterModule } from '@angular/router';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     EditProjectComponentComponent,
     StartUpComponent,
     TaskComponentComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,

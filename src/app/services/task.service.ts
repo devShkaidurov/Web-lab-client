@@ -17,5 +17,15 @@ export class TaskService {
     deleteTaskById(projectId: number | undefined, taskId: number):  Observable<Task> {
         return this.http.delete<Task>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${projectId}/tasks/${taskId}`);
     }
+
+    setCompleteTask(projectId: number | undefined, taskId: number, task: Task): Observable<Task> {
+        return this.http.put<Task>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${projectId}/tasks/${taskId}`,
+            task);
+    }
+
+    createTask(projectId: number | undefined, task: Task): Observable<Task> {
+        return this.http.post<Task>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${projectId}/tasks`,
+            task);
+    }
 }
 

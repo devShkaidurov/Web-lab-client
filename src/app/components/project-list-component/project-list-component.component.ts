@@ -52,6 +52,6 @@ export class ProjectListComponentComponent implements OnInit {
       alert("Идентификатор проекта утерян!");
       return;
     }
-    this.router.navigate(['tasks', id]);
+    this.router.navigate(['tasks', id], { state: { project: this.projects?.find(proj => proj.id === id)}});
   }
 }

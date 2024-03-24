@@ -1,21 +1,49 @@
 <div id="main-task-list-wrapper">
     <div id="task-list-header">
-        <p>Задачи проекта</p>
+        <p>Проект: {{ project?.nameProject}}</p>
     </div>
-    <button id="goBackBtn" (click)="handleGoToBack()">
-        <img src="../../../assets/img/back.svg" alt="go_to_back">
-    </button>
     <hr>
+    <div class="subheader">
+        <p class="first">Описание проекта</p>
+        <p class="second">{{ project?.descriptionProject }}</p> 
+    </div>
+    <hr>
+    <div class="subheader">
+        <p class="first">Задачи проекта</p>
+    </div>
+   
     <div *ngIf="tasks?.length !== 0" id="task-list-container" class="row">
         <li *ngFor="let task of tasks;" class="col-sm-6 col-md-3 col-lg-3 col-xl-2">
-            <app-task-component [task]="task" (deleteTaskEvent)="deleteTaskByEvent($event)"></app-task-component>
+            <app-task-component [task]="task" (deleteTaskEvent)="deleteTaskByEvent($event)" (completTaskEvent)="setCompleteTaskEvent($event)"></app-task-component>
         </li>
     </div>
 
     <div *ngIf="tasks?.length === 0" id="task-list-empty">
         Список задач пуст :)
     </div>
+
+    <div id="handleAddTask">
+        <button (click)="handleCreateNewTask()">Добавить задачу</button>
+    </div>
     <hr>
 
+    <div class="subheader">
+        <p class="first">Сроки проекта</p>
+        <p class="second">
+            Дата начала: {{ project?.startDate }} <br>
+            Дата окончания: {{ project?.finishDate }}
+        </p>
+    </div>
+
+    <button id="goBackBtn" (click)="handleGoToBack()">
+        <img src="../../../assets/img/back.svg" alt="go_to_back">
+    </button>
     
+    <hr>
+
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <button id="removeProject" (click)="handleRemoveProject(project?.id)">
+            Удалить проект
+        </button>
+    </div>
 </div>
