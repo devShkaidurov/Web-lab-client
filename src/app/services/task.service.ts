@@ -13,5 +13,9 @@ export class TaskService {
     get(id: number): Observable<Task[]> {
         return this.http.get<Task[]>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${id}/tasks`);
     }
+
+    deleteTaskById(projectId: number | undefined, taskId: number):  Observable<Task> {
+        return this.http.delete<Task>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${projectId}/tasks/${taskId}`);
+    }
 }
 

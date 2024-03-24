@@ -44,3 +44,12 @@
 #goBackBtn img {
     width: 100%;
 }
+
+#task-list-empty {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    font-size: 14pt;
+}

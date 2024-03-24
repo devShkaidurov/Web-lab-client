@@ -2,14 +2,20 @@
     <div id="task-list-header">
         <p>Задачи проекта</p>
     </div>
-
-    <div id="task-list-container" class="row">
-        <li *ngFor="let task of tasks;" class="col-sm-6 col-md-3 col-lg-3 col-xl-2">
-            <app-task-component [task]="task"></app-task-component>
-        </li>
-    </div>
-
     <button id="goBackBtn" (click)="handleGoToBack()">
         <img src="../../../assets/img/back.svg" alt="go_to_back">
     </button>
+    <hr>
+    <div *ngIf="tasks?.length !== 0" id="task-list-container" class="row">
+        <li *ngFor="let task of tasks;" class="col-sm-6 col-md-3 col-lg-3 col-xl-2">
+            <app-task-component [task]="task" (deleteTaskEvent)="deleteTaskByEvent($event)"></app-task-component>
+        </li>
+    </div>
+
+    <div *ngIf="tasks?.length === 0" id="task-list-empty">
+        Список задач пуст :)
+    </div>
+    <hr>
+
+    
 </div>

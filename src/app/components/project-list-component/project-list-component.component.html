@@ -3,17 +3,21 @@
         <h1>Проекты</h1>
         <div>
             <input type="search" id="project-filter" #box (keyup.enter)="handleFilterByEnter(box.value)">
-            <button title="Найти проект по названию или описанию">Поиск</button>
+            <button title="Найти проект по названию или описанию" (click)="handleFilterByEnter(box.value)">Поиск</button>
         </div>
         <button title="Добавить новый проект" id="addNewProjectAction" [routerLink]="['/projects/new']">
             <img src="../../../assets/img/add.svg">
         </button>
     </div>
     <hr>
-        <div id="container-for-projects" class="row">
-            <li *ngFor="let project of projects;" class="col-sm-6 col-md-3 col-lg-3 col-xl-2">
+        <div *ngIf="projectsFiltered?.length !== 0" id="container-for-projects" class="row">
+            <li *ngFor="let project of projectsFiltered;" class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-2" style="display: flex; justify-content: center;">
                 <app-project-component [project]="project" [countOpenTask]="dictOpenedTask[project.id]" (click)="openProjectInfo(project.id)"></app-project-component>
             </li>
+        </div>
+
+        <div *ngIf="projectsFiltered?.length === 0" style="width: 100%; display: flex; justify-content: center; font-size: 14pt;">
+            Список проектов пуст :(
         </div>
     <hr>
 </div>

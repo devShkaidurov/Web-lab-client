@@ -12,6 +12,7 @@ import { ProjectComponentComponent } from '../project-component/project-componen
 })
 export class ProjectListComponentComponent implements OnInit {
   projects: Project[] | undefined;
+  projectsFiltered: Project[] | undefined;
   dictOpenedTask: any;
 
   constructor (
@@ -28,14 +29,21 @@ export class ProjectListComponentComponent implements OnInit {
       .subscribe(([projects, dict]) => {
         console.dir(projects);
         this.projects = projects;
+        this.projectsFiltered = projects;
         this.dictOpenedTask = dict;
       })
   }
 
   handleFilterByEnter (phrase: string): void {
-    this.projectService.getAll(phrase).subscribe((projects) => {
-      this.projects = projects;
-    })
+    // Server-side filtering
+    // this.projectService.getAll(phrase).subscribe((projects) => {
+    //   this.projects = projects;
+    // })
+
+    // Client-side filtering
+    this.projectsFiltered = this.projects?.filter((project) => {
+      return project.nameProject.toLowerCase().indexOf(phrase.toLowerCase()) !== -1 || project.descriptionProject.toLowerCase().indexOf(phrase.toLowerCase()) !== -1;
+    });
   }
 
   openProjectInfo (id: number): void {

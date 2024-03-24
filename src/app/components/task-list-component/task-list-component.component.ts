@@ -9,7 +9,7 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task-list-component.component.css']
 })
 export class TaskListComponentComponent implements OnInit {
-  id: number | undefined;
+  projectId: number | undefined;
   tasks: Task[] | undefined;
 
   constructor (
@@ -19,14 +19,14 @@ export class TaskListComponentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = Number(this.route.snapshot.paramMap.get('projectId'));
-    if (!this.id) {
+    this.projectId = Number(this.route.snapshot.paramMap.get('projectId'));
+    if (!this.projectId) {
       alert("Не удалось получить идентификатор проекта!");
       this.router.navigate(['projects']);
       return;
     }
 
-    this.taskService.get(this.id)
+    this.taskService.get(this.projectId)
       .subscribe({
         next: (tasks) => {
           console.dir(tasks);
@@ -40,5 +40,25 @@ export class TaskListComponentComponent implements OnInit {
 
   handleGoToBack(): void {
     this.router.navigate(['projects']);
+  }
+
+  deleteTaskByEvent(taskId: number):void {
+    this.taskService.deleteTaskById(this.projectId, taskId)
+      .subscribe({
+        next: () => {
+          const index = this.tasks?.findIndex((task) => {
+            return task.id === taskId;
+          });
+          if (!index)
+            return;
+          this.tasks?.splice(index, 1);
+          setTimeout(() => {
+            alert("Задача успешно удалена!");
+          }, 100);
+        },
+        error: (err: any) => {
+          alert(err);
+        }
+      })
   }
 }

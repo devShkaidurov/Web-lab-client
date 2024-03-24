@@ -1,13 +1,13 @@
 <div class="task-wrapper">
     <div class="task-header">
-        <div *ngIf="isExpired(task?.plannedFinishDate)" class="indicator"></div>
+        <div *ngIf="isExpired(task?.plannedFinishDate)" class="indicator" title="Задача просрочена"></div>
         <s *ngIf="task?.completed">{{ task?.nameTask }}</s>
         <p *ngIf="!task?.completed">{{ task?.nameTask }}</p>
     </div>
     <div class="task-date-container">
         <p>Планируемая дата завершения: {{ task?.plannedFinishDate }}</p>
     </div>
-    <button class="removeTaskBtn">
+    <button class="removeTaskBtn" (click)="handleDeleteTask(task?.id)" title="Удалить задачу">
         <img src="../../../assets/img/delete.svg" alt="delete_task">
     </button>
 </div>
