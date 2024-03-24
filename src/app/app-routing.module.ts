@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'projects', component: ProjectListComponentComponent, pathMatch: 'full'},
   { path: 'projects/:id', component: EditProjectComponentComponent},
   { path: 'projects/new',  component: EditProjectComponentComponent},
-  { path: 'tasks/:id', component: TaskListComponentComponent},
+  { path: 'tasks/:projectId', component: TaskListComponentComponent},
 ];
 
 @NgModule({

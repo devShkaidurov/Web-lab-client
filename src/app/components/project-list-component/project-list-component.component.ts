@@ -26,6 +26,7 @@ export class ProjectListComponentComponent implements OnInit {
         this.projectService.getOpenedTask()
       )
       .subscribe(([projects, dict]) => {
+        console.dir(projects);
         this.projects = projects;
         this.dictOpenedTask = dict;
       })
@@ -35,5 +36,14 @@ export class ProjectListComponentComponent implements OnInit {
     this.projectService.getAll(phrase).subscribe((projects) => {
       this.projects = projects;
     })
+  }
+
+  openProjectInfo (id: number): void {
+    console.dir(id);
+    if (!id) {
+      alert("Идентификатор проекта утерян!");
+      return;
+    }
+    this.router.navigate(['tasks', id]);
   }
 }

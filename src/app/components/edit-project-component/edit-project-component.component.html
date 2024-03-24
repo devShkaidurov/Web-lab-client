@@ -3,28 +3,28 @@
         <img src="../../../assets/img/back.svg">
         Назад
     </button>
+    <form [formGroup]="projectForm">
+        <div class="edit-container name_project">
+            <p>Имя проекта</p>
+            <input type="text" formControlName="nameProject" name="nameProject">
+        </div>
 
-    <div class="edit-container name_project">
-        <p>Имя проекта</p>
-        <input type="text" [(ngModel)]="project.nameProject">
-    </div>
+        <div class="edit-container desc_project">
+            <p>Описание проекта</p>
+            <textarea formControlName="descriptionProject" name="descriptionProject"></textarea>
+        </div>
 
-    <div class="edit-container desc_project">
-        <p>Описание проекта</p>
-        <textarea [(ngModel)]="project.descriptionProject"></textarea>
-    </div>
+        <div class="edit-container date_start_project">
+            <p>Дата начала проекта</p>
+            <input type="date" formControlName="startDate" name="startDate">
+        </div>
 
-    <div class="edit-container date_start_project">
-        <p>Дата начала проекта</p>
-        <input type="date" [(ngModel)]="project.startDate">
-    </div>
-
-    <div class="edit-container date_finish_project">
-        <p>Дата завершения проекта</p>
-        <input type="date"  [(ngModel)]="project.finishDate">
-    </div>
-
-    <button >
+        <div class="edit-container date_finish_project">
+            <p>Дата завершения проекта</p>
+            <input type="date"  formControlName="finishDate" name="finishDate">
+        </div>
+    </form>
+    <button (click)="saveAndBack()">
         Сохранить
     </button>
 </div>

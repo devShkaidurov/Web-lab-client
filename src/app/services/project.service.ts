@@ -21,5 +21,15 @@ export class ProjectService {
     getOpenedTask(): Observable<Object> {
         return this.http.get<Object>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/open`);
     }
+
+    updateProject(id: number, project: Project): Observable<Object> {
+        return this.http.put<Project>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects/${id}`,
+            project);
+    }
+
+    createProject(project: Project): Observable<Object> {
+        return this.http.post<Project>(`http${environment.secure ? 's' : ''}://${environment.ip}:${environment.port}/projects`,
+            project);
+    }
 }
 

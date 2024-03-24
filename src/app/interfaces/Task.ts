@@ -1,7 +1,7 @@
 export interface Task {
     id: number,
-    name: string,
-    desc: string,
+    nameTask: string,
+    descriptionTask: string,
     plannedFinishDate: Date,
-    isCompleted: boolean
+    completed: boolean
 }

@@ -1,0 +1,46 @@
+#main-task-list-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#task-list-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#task-list-header p {
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+#task-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#task-list-container li {
+    width: 350px;
+}
+
+#goBackBtn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 45px;
+    border: none;
+    background-color: none;
+    background: none;
+}
+
+
+#goBackBtn img {
+    width: 100%;
+}

@@ -12,7 +12,7 @@
     <hr>
         <div id="container-for-projects" class="row">
             <li *ngFor="let project of projects;" class="col-sm-6 col-md-3 col-lg-3 col-xl-2">
-                <app-project-component [project]="project" [countOpenTask]="dictOpenedTask[project.id]" ></app-project-component>
+                <app-project-component [project]="project" [countOpenTask]="dictOpenedTask[project.id]" (click)="openProjectInfo(project.id)"></app-project-component>
             </li>
         </div>
     <hr>

@@ -7,7 +7,9 @@ import { TaskListComponentComponent } from './components/task-list-component/tas
 import { EditProjectComponentComponent } from './components/edit-project-component/edit-project-component.component';
 import { ProjectComponentComponent } from './components/project-component/project-component.component';
 import { StartUpComponent } from './components/start-up/start-up.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TaskComponentComponent } from './components/task-component/task-component.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,16 @@ import { FormsModule } from '@angular/forms';
     TaskListComponentComponent,
     EditProjectComponentComponent,
     StartUpComponent,
+    TaskComponentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ProjectComponentComponent,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [StartUpComponent]
