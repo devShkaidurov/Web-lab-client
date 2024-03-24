@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Project } from 'src/app/interfaces/Project';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from '../../interfaces/Task';
 
@@ -10,7 +11,9 @@ import { Task } from '../../interfaces/Task';
 })
 export class AddTaskComponent implements OnInit {
   projectId: number | undefined;
-
+  // Приходить тащить его везде за собой
+  project: Project | undefined;
+  
   constructor (
     private route: ActivatedRoute,
     private router: Router,
@@ -18,6 +21,7 @@ export class AddTaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.project = history.state.project;
     this.projectId = Number(this.route.snapshot.paramMap.get('projectId'));
     if (!this.projectId) {
       alert("Не удалось получить идентификатор проекта!");
@@ -37,7 +41,7 @@ export class AddTaskComponent implements OnInit {
 
     this.taskService.createTask(this.projectId, task)
       .subscribe({
-        next: (task) => {
+        next: () => {
           alert("Задача успешно создана!");
           this.handleGoBack();
         },
@@ -49,6 +53,6 @@ export class AddTaskComponent implements OnInit {
   }
 
   handleGoBack(): void {
-    this.router.navigate(["tasks", this.projectId]);
+    this.router.navigate(["tasks", this.projectId], {state: { project: this.project }});
   }
 }

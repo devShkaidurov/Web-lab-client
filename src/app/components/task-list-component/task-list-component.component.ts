@@ -100,6 +100,6 @@ export class TaskListComponentComponent implements OnInit {
   }
 
   handleCreateNewTask(): void {
-    this.router.navigate(['tasks', this.projectId, 'new']);
+    this.router.navigate(['tasks', this.projectId, 'new'], {state: { project: this.project }});
   }
 }
