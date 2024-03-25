@@ -1,6 +1,6 @@
 <div class="project">
     <p>№: {{project?.id || "Нет данных"}}</p>
-    <h6>Название: {{project?.nameProject || "Нет данных"}}</h6>
+    <h6>{{project?.nameProject || "Нет данных"}}</h6>
     <p>Дата начала: {{project?.startDate | date: 'dd/MM/yyyy' }}</p>
     <p>Дата завершения: {{project?.finishDate | date: 'dd/MM/yyyy' }}</p>
     <p>Незавершенных задач: {{ countOpenTask }}</p>

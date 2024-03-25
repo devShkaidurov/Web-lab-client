@@ -61,7 +61,7 @@ export class TaskListComponentComponent implements OnInit {
           const index = this.tasks?.findIndex((task) => {
             return task.id === taskId;
           });
-          if (!index)
+          if (index === undefined || index === null)
             return;
           this.tasks?.splice(index, 1);
           setTimeout(() => {
