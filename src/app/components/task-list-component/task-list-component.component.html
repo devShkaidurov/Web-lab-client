@@ -1,4 +1,10 @@
 <div id="main-task-list-wrapper">
+    
+    <button id="goBackBtn" (click)="handleGoToBack()">
+        <img src="../../../assets/img/back.svg" alt="go_to_back">
+        К проектам
+    </button>
+    
     <div id="task-list-header">
         <p>Проект: {{ project?.nameProject}}</p>
     </div>
@@ -35,10 +41,6 @@
         </p>
     </div>
 
-    <button id="goBackBtn" (click)="handleGoToBack()">
-        <img src="../../../assets/img/back.svg" alt="go_to_back">
-    </button>
-    
     <hr>
 
     <div style="width: 100%; display: flex; justify-content: center;">

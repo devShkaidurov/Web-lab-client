@@ -1,6 +1,6 @@
 <div class="task-wrapper">
     <div class="task-header">
-        <div *ngIf="isExpired(task?.plannedFinishDate)" class="indicator" title="Задача просрочена"></div>
+        <div *ngIf="isIndicate(task?.plannedFinishDate)" class="indicator" title="Задача просрочена"></div>
         <s *ngIf="task?.completed">{{ task?.nameTask }}</s>
         <p *ngIf="!task?.completed">{{ task?.nameTask }}</p>
     </div>

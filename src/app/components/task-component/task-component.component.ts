@@ -13,10 +13,10 @@ export class TaskComponentComponent {
   // Необязательно, решил добавить. Нужен для изменения состояния задачи на выполненную
   @Output() completTaskEvent = new EventEmitter<Task>();
 
-  isExpired(date: Date | undefined): boolean {
+  isIndicate(date: Date | undefined): boolean {
     if (!date) 
       return false;
-    return new Date(date).valueOf() < new Date().valueOf();
+    return (new Date(date).valueOf() < new Date().valueOf() && !this.task?.completed);
   }
 
   handleDeleteTask (taskId: number | undefined) {
